@@ -1,0 +1,93 @@
+---
+import MainLayout  from "../layouts/MainLayout.astro";
+---
+<MainLayout title="PurpleSpace | Contact">
+    <section class="contact-section section-container">
+    <div class="section-heading">
+  <span class="section-tag">GET IN TOUCH</span>
+
+  <h1>
+    Contact <span class="gradient-text">Us.</span>
+  </h1>
+
+  <p>
+    Have a question or an idea?
+    We would love to hear from you.
+  </p>
+</div>
+
+<div class="contact-card glass">
+
+  <form id="contactForm">
+
+    <label for="name">Your Name</label>
+    <input
+      id="name"
+      type="text"
+      placeholder="Enter your name"
+      required
+    />
+
+    <label for="contactEmail">Email Address</label>
+    <input
+      id="contactEmail"
+      type="email"
+      placeholder="Enter your email"
+      required
+    />
+
+    <label for="subject">Subject</label>
+    <input
+      id="subject"
+      type="text"
+      placeholder="What is this about?"
+      required
+    />
+
+    <label for="message">Your Message</label>
+    <textarea
+      id="message"
+      rows="5"
+      placeholder="Write your message..."
+      required
+    ></textarea>
+
+    <button type="submit" class="btn btn-primary">
+      Send Message →
+    </button>
+
+    <p id="contactMessage" class="form-message"></p>
+
+  </form>
+
+</div>
+    </section>
+</MainLayout>
+
+<script>
+
+  const contactForm =
+
+    document.querySelector<HTMLFormElement>("#contactForm");
+
+  const contactMessage =
+
+    document.querySelector<HTMLParagraphElement>("#contactMessage");
+
+  contactForm?.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    if (contactMessage) {
+
+      contactMessage.textContent =
+
+        "Thank you! Your demo message has been received.";
+
+    }
+
+    contactForm.reset();
+
+  });
+
+</script>
